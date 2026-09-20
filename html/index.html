@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONG Esperança Solidária - Início</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header>
+    <h1>ONG Esperança Solidária</h1>
+
+    <div class="menu-container">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir ou fechar menu principal" aria-controls="menu-principal">
+      <label for="menu-toggle" class="menu-icon" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav id="menu-principal" class="main-nav" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li class="dropdown">
+            <a href="projetos.html">Projetos</a>
+            <ul class="submenu">
+              <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
+              <li><a href="projetos.html#campanhas">Campanhas de doação</a></li>
+              <li><a href="projetos.html#como-ajudar">Como ajudar</a></li>
+            </ul>
+          </li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" class="grid-12">
+    <section class="col-12">
+      <h2>Apresentação da ONG</h2>
+      <p>A ONG Esperança Solidária atua no desenvolvimento de projetos sociais voltados ao apoio de famílias em situação de vulnerabilidade, incentivo ao voluntariado e fortalecimento da solidariedade.</p>
+      <picture>
+        <source srcset="../imagens/ong.webp" type="image/webp">
+        <img src="../imagens/ong.jpg" alt="Voluntários da ONG organizando doações em caixas" width="800">
+      </picture>
+    </section>
+
+    <section class="col-6">
+      <h2>Quem somos</h2>
+      <p>Somos uma organização sem fins lucrativos comprometida com ações sociais, mobilização comunitária e acolhimento de pessoas que precisam de apoio.</p>
+    </section>
+
+    <section class="col-6">
+      <h2>Nossa missão</h2>
+      <p>Promover inclusão social, incentivar a participação cidadã e ampliar o alcance de campanhas solidárias por meio do engajamento de voluntários e doadores.</p>
+    </section>
+
+    <section class="col-12">
+      <h2>Ações em destaque</h2>
+      <p>Conheça algumas das principais formas de atuação da ONG.</p>
+      <div id="lista-acoes"></div>
+    </section>
+
+    <section class="col-12">
+      <h2>Entre em contato</h2>
+      <address>
+        <p>E-mail: <a href="mailto:contato@esperancasolidaria.org">contato@esperancasolidaria.org</a></p>
+        <p>Telefone: <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+        <p>Endereço: São Paulo - SP</p>
+      </address>
+    </section>
+
+    <section class="col-12 feedback-demo">
+      <h2>Componentes de feedback</h2>
+      <p>Exemplos visuais de elementos usados para comunicar estados, categorias e retornos da plataforma.</p>
+      <h3>Etiquetas de categorização</h3>
+      <div class="badges-container">
+        <span class="badge badge-success">Voluntariado</span>
+        <span class="badge badge-info">Doações</span>
+        <span class="badge badge-warning">Campanha ativa</span>
+      </div>
+      <h3>Alertas</h3>
+      <div class="alert alert-success"><strong>Sucesso:</strong> Cadastro realizado com sucesso.</div>
+      <div class="alert alert-warning"><strong>Atenção:</strong> Verifique se todos os campos obrigatórios foram preenchidos.</div>
+      <div class="alert alert-error"><strong>Erro:</strong> Não foi possível enviar os dados. Verifique as informações.</div>
+      <h3>Notificação</h3>
+      <div class="toast-example">
+        <span class="toast-icon" aria-hidden="true">✓</span>
+        <div><strong>Cadastro enviado!</strong><p>Obrigado por apoiar a ONG Esperança Solidária.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>&copy; 2026 ONG Esperança Solidária. Todos os direitos reservados.</p></footer>
+  <script type="module" src="../js/script.js"></script>
+</body>
+</html>
