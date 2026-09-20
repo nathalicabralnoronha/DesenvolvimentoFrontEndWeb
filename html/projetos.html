@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONG Esperança Solidária - Projetos</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+  <header>
+    <h1>Projetos e Iniciativas</h1>
+    <div class="menu-container">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir ou fechar menu principal" aria-controls="menu-principal">
+      <label for="menu-toggle" class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></label>
+      <nav id="menu-principal" class="main-nav" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li class="dropdown">
+            <a href="projetos.html" aria-current="page">Projetos</a>
+            <ul class="submenu">
+              <li><a href="#voluntariado">Voluntariado</a></li>
+              <li><a href="#campanhas">Campanhas de doação</a></li>
+              <li><a href="#como-ajudar">Como ajudar</a></li>
+            </ul>
+          </li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" class="grid-12">
+    <section class="col-12" id="voluntariado">
+      <h2>Voluntariado</h2>
+      <p>O voluntariado é uma das principais formas de atuação da ONG. Os participantes colaboram em campanhas, eventos sociais, distribuição de doações e ações comunitárias.</p>
+      <ul>
+        <li>Apoio em eventos sociais;</li>
+        <li>Organização de doações;</li>
+        <li>Atendimento e acolhimento à comunidade.</li>
+      </ul>
+      <picture>
+        <source srcset="../imagens/voluntariado.webp" type="image/webp">
+        <img src="../imagens/voluntariado.jpg" alt="Voluntários atuando em atividade comunitária com crianças e idosos" width="800">
+      </picture>
+    </section>
+
+    <section class="col-8" id="campanhas">
+      <h2>Campanhas de doação</h2>
+      <article>
+        <h3>Arrecadação de alimentos</h3>
+        <p>Realizamos campanhas para arrecadação de alimentos não perecíveis destinados a famílias em situação de vulnerabilidade social.</p>
+      </article>
+      <article>
+        <h3>Arrecadação de roupas e itens de higiene</h3>
+        <p>Também promovemos campanhas de coleta de roupas, cobertores e materiais de higiene pessoal para atendimento emergencial e ações solidárias.</p>
+      </article>
+      <picture>
+        <source srcset="../imagens/doacao.webp" type="image/webp">
+        <img src="../imagens/doacao.jpg" alt="Equipe organizando alimentos, roupas e itens de higiene para doação" width="800">
+      </picture>
+    </section>
+
+    <section class="col-4" id="como-ajudar">
+      <h2>Como ajudar</h2>
+      <p>Você pode contribuir financeiramente, doar itens essenciais ou se cadastrar como voluntário para participar das ações da ONG.</p>
+      <p><a href="cadastro.html">Cadastre-se para colaborar com a ONG</a></p>
+    </section>
+
+    <section class="col-12">
+      <h2>Projetos em destaque</h2>
+      <p>Os componentes abaixo são gerados dinamicamente utilizando JavaScript.</p>
+      <div id="lista-projetos"></div>
+    </section>
+  </main>
+
+  <footer><p>&copy; 2026 ONG Esperança Solidária. Todos os direitos reservados.</p></footer>
+  <script type="module" src="../js/script.js"></script>
+</body>
+</html>
