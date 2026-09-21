@@ -1,0 +1,14 @@
+{
+  "name": "ong-esperanca-solidaria",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/build-report.mjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "8.3.0"
+  }
+}

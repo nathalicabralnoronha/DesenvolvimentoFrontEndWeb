@@ -1,43 +1,43 @@
 # ONG Esperança Solidária — Desenvolvimento Front-End
 
-Projeto acadêmico desenvolvido para a disciplina de Desenvolvimento Front-End, com foco em HTML5 semântico, CSS3, JavaScript, manipulação do DOM, validação de formulários, persistência local e organização de fluxo de trabalho com Git/GitHub.
+Projeto acadêmico desenvolvido para a disciplina de Desenvolvimento Front-End, com foco em HTML5 semântico, CSS3, JavaScript modular, acessibilidade, validação de formulários, persistência local, Git/GitHub, build de produção e deploy contínuo.
 
 ## Apresentação do projeto
 
-A aplicação representa o site da ONG Esperança Solidária. O objetivo é apresentar a instituição, divulgar projetos e campanhas, permitir o cadastro de voluntários e apoiadores e demonstrar práticas de desenvolvimento front-end organizadas e acessíveis.
+A aplicação representa o site da ONG Esperança Solidária. O objetivo é apresentar a instituição, divulgar projetos e campanhas e permitir o cadastro de voluntários e apoiadores.
 
 ## Funcionalidades
 
-- Navegação entre as áreas de Início, Projetos e Cadastro.
-- Estrutura semântica com HTML5.
-- Componentes dinâmicos gerados com JavaScript.
-- Manipulação do DOM com `querySelector`, `createElement`, `innerHTML` e eventos.
-- Validação de formulário com recursos nativos do HTML5 e JavaScript.
-- Validação de CPF, telefone e CEP por `pattern`.
-- Persistência de histórico com `localStorage`.
-- Uso de `JSON.stringify()` e `JSON.parse()` para armazenamento e recuperação de dados.
-- Organização do código por responsabilidade.
-- Estratégia de versionamento baseada em GitFlow.
+- navegação entre Início, Projetos e Cadastro;
+- HTML5 semântico e landmarks;
+- componentes dinâmicos em JavaScript;
+- validação de formulário com HTML5 e JavaScript;
+- validação de CPF, telefone e CEP por `pattern`;
+- persistência de histórico com `localStorage`;
+- módulos ES6 com `import` e `export`;
+- navegação por teclado, foco visível e atributos ARIA;
+- layout responsivo;
+- build de produção com Vite;
+- CI/CD com GitHub Actions e GitHub Pages.
 
 ## Tecnologias utilizadas
 
-- **HTML5** — estrutura semântica, formulários e acessibilidade.
-- **CSS3** — apresentação, responsividade e feedback visual de validação.
-- **JavaScript (Vanilla JS)** — DOM, eventos, templates dinâmicos, validação e persistência.
-- **Web Storage API / localStorage** — histórico local de cadastros.
-- **History API** — apoio à navegação e atualização de rota.
-- **Git e GitHub** — versionamento, branches, issues e pull requests.
+- **HTML5** — estrutura semântica, formulários e acessibilidade;
+- **CSS3** — layout, responsividade e estados visuais;
+- **JavaScript (Vanilla JS / ES Modules)** — DOM, eventos, templates, validação e persistência;
+- **Web Storage API / localStorage** — histórico local;
+- **Vite 8.3.0** — bundler e ferramenta de build de produção;
+- **Git e GitHub** — versionamento, branches, issues e pull requests;
+- **GitHub Actions / GitHub Pages** — integração, build e deploy contínuo.
 
-O projeto não utiliza frameworks ou bibliotecas externas.
+O código da aplicação não utiliza framework. O Vite é utilizado como ferramenta de desenvolvimento e build.
 
 ## Pré-requisitos
 
-Para executar o projeto é necessário:
-
-- Navegador moderno, como Google Chrome, Microsoft Edge ou Firefox.
-- Editor de código, como Visual Studio Code, recomendado para manutenção.
-- Git, caso seja necessário clonar ou versionar o projeto.
-- Opcionalmente, a extensão **Live Server** do VS Code para executar o projeto em um servidor local.
+- Node.js 22 ou versão compatível;
+- npm;
+- Git;
+- navegador moderno.
 
 ## Instalação
 
@@ -45,83 +45,129 @@ Clone o repositório:
 
 ```bash
 git clone https://github.com/nathalicabralnoronha/DesenvolvimentoFrontEndWeb.git
-```
-
-Acesse a pasta do projeto:
-
-```bash
 cd DesenvolvimentoFrontEndWeb
 ```
 
-Não há dependências NPM ou bibliotecas externas para instalar.
+Instale as dependências:
 
-## Execução
+```bash
+npm install
+```
 
-O projeto pode ser aberto diretamente pelo arquivo `index.html`.
+## Execução em desenvolvimento
 
-Para uma execução local mais próxima de um ambiente web, recomenda-se abrir a pasta no Visual Studio Code e utilizar a extensão **Live Server**.
+```bash
+npm run dev
+```
 
-## Build
+O Vite inicia um servidor local para desenvolvimento.
 
-Não existe etapa de build, pois o projeto utiliza HTML, CSS e JavaScript puros. Os arquivos podem ser executados diretamente no navegador.
+## Build de produção
+
+```bash
+npm run build
+```
+
+O Vite processa os módulos JavaScript, otimiza e minifica os assets de produção e gera a pasta `dist/`. Após o build, o script `scripts/build-report.mjs` compara os bytes dos arquivos-fonte HTML/CSS/JS com os artefatos equivalentes em `dist` e grava o resultado em `dist/build-report.txt`.
+
+Para testar a versão de produção localmente:
+
+```bash
+npm run preview
+```
+
+## Roteamento e hospedagem estática
+
+A aplicação é **multi-page (MPA)**, e não uma SPA. Cada rota de navegação corresponde a um arquivo HTML real:
+
+- `/html/index.html`
+- `/html/projetos.html`
+- `/html/cadastro.html`
+
+Por esse motivo, o GitHub Pages pode servir diretamente cada documento e **não é necessário configurar fallback de SPA para `index.html`**. O arquivo `index.html` da raiz apenas direciona o acesso inicial para `html/index.html`.
+
+## CI/CD e deploy
+
+O workflow `.github/workflows/pages.yml` é executado em cada `push` para a branch `main`.
+
+O pipeline:
+
+1. faz checkout do repositório;
+2. configura Node.js;
+3. instala as dependências;
+4. executa `npm run build`;
+5. registra no log o relatório real de tamanho/minificação;
+6. envia exclusivamente a pasta `dist/` como artefato;
+7. publica o artefato no GitHub Pages.
+
+URL pública:
+
+https://nathalicabralnoronha.github.io/DesenvolvimentoFrontEndWeb/
 
 ## Testes e validação
 
-A qualidade do projeto é verificada por:
+- validação estrutural de HTML;
+- testes manuais do formulário;
+- inspeção de Console/DevTools;
+- testes de navegação e renderização;
+- verificação do `localStorage`;
+- execução real do build de produção;
+- verificação do workflow de deploy no GitHub Actions.
 
-- validação estrutural dos arquivos HTML no **W3C Validator**;
-- testes manuais dos campos obrigatórios e padrões do formulário;
-- inspeção de erros no Console do navegador;
-- verificação de armazenamento na aba Application/Storage do DevTools;
-- testes de navegação e renderização dos componentes;
-- conferência dos caminhos relativos entre os arquivos.
-
-## Estrutura do projeto
+## Estrutura principal
 
 ```text
-projeto/
+.
+├── index.html
 ├── html/
 │   ├── index.html
 │   ├── projetos.html
 │   └── cadastro.html
 ├── css/
-│   └── styles.css
-├── images/
-│   └── imagens utilizadas no projeto
+│   └── style.css
 ├── js/
 │   ├── templates.js
 │   ├── storage.js
 │   ├── validacao.js
 │   └── script.js
+├── scripts/
+│   └── build-report.mjs
+├── package.json
+├── vite.config.js
+├── .github/
+│   └── workflows/
+│       └── pages.yml
 └── README.md
 ```
 
+A pasta `dist/` é gerada automaticamente pelo build e representa os artefatos efetivamente publicados em produção.
+
 ## Estratégia GitFlow
 
-O fluxo de desenvolvimento utiliza:
+- `main`: versão estável/publicada;
+- `develop`: integração do desenvolvimento;
+- `feature/*`: novas funcionalidades e melhorias;
+- `hotfix/*`: correções urgentes.
 
-- `main`: versão estável e pronta para lançamento;
-- `develop`: integração do desenvolvimento contínuo;
-- `feature/*`: novas funcionalidades criadas a partir de `develop`;
-- `hotfix/*`: correções urgentes originadas em `main`.
-
-As funcionalidades são desenvolvidas em branches próprias, revisadas por pull request e integradas primeiro em `develop`. Após validação, a versão consolidada segue para `main`.
+As alterações são integradas por Pull Request antes de chegar à `main`.
 
 ## Conventional Commits e versionamento
 
-As mensagens de commit seguem o padrão Conventional Commits, por exemplo:
+Exemplos:
 
-- `feat: adiciona nova funcionalidade`
-- `fix: corrige validação do formulário`
-- `docs: atualiza documentação do projeto`
-- `refactor: reorganiza código por responsabilidade`
+- `feat:` nova funcionalidade;
+- `fix:` correção;
+- `docs:` documentação;
+- `refactor:` reorganização interna;
+- `build:` configuração de build;
+- `ci:` automação de integração/deploy.
 
-O versionamento segue **Semantic Versioning (MAJOR.MINOR.PATCH)**. A primeira versão estável é identificada como `v1.0.0`.
+O projeto utiliza Semantic Versioning no formato `MAJOR.MINOR.PATCH`.
 
 ## Segurança e privacidade
 
-O histórico salvo no `localStorage` é limitado e não armazena dados sensíveis como CPF, telefone e endereço. São mantidas apenas informações necessárias para demonstrar a persistência local da aplicação.
+O histórico em `localStorage` não armazena CPF, telefone ou endereço. Apenas nome, área de interesse e data do registro são persistidos para demonstração da funcionalidade.
 
 ## Autoria
 
-Projeto acadêmico desenvolvido por **Nathali Cabral Noronha** para a disciplina de Desenvolvimento Front-End.
+Projeto acadêmico desenvolvido por **Nathali Cabral Noronha**.
