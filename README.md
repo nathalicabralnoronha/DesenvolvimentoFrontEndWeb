@@ -68,7 +68,7 @@ O Vite inicia um servidor local para desenvolvimento.
 npm run build
 ```
 
-O Vite processa os módulos JavaScript, otimiza e minifica os assets de produção e gera a pasta `dist/`. Após o build, o script `scripts/build-report.mjs` compara os bytes dos arquivos-fonte HTML/CSS/JS com os artefatos equivalentes em `dist` e grava o resultado em `dist/build-report.txt`.
+O Vite processa e minifica JavaScript e CSS e gera a pasta `dist/`. Em seguida, `scripts/minify-html.mjs` minifica também os arquivos HTML com `html-minifier-terser`. Por fim, `scripts/build-report.mjs` compara os bytes dos arquivos-fonte HTML/CSS/JS com os artefatos finais em `dist` e grava a medição real em `dist/build-report.txt`.
 
 Para testar a versão de produção localmente:
 
@@ -131,7 +131,7 @@ https://nathalicabralnoronha.github.io/DesenvolvimentoFrontEndWeb/
 │   ├── validacao.js
 │   └── script.js
 ├── scripts/
-│   └── build-report.mjs
+│   ├── minify-html.mjs\n│   └── build-report.mjs
 ├── package.json
 ├── vite.config.js
 ├── .github/
